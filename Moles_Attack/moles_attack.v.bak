@@ -1,0 +1,107 @@
+module moles_attack (CLOCK_50, RESET, KEY[3:0], LEDG[7:0], LEDR[17:0])
+
+   input CLOCK_50;
+	input RESET;
+	input KEY[3:0];
+	output LEDG[3:0], LEDR[17:0];
+	
+	wire [3:0]BT; //Botoes "Debounceados"
+	
+	//Debouncing dos botoes
+	DeBouce DB3 (CLOCK_50, RESET, KEY[3], BT[3]);
+	DeBouce DB2 (CLOCK_50, RESET, KEY[2], BT[2]);
+	DeBouce DB1 (CLOCK_50, RESET, KEY[1], BT[1]);
+	DeBouce DB0 (CLOCK_50, RESET, KEY[0], BT[0]);
+	
+	reg cont_a, cont_e, cont_g, cont_go;
+	
+	parameter inicio = 0, nivel_1 = 1, nivel_2 = 2, nivel_3 = 3,
+	          nivel_4 = 4, ganhou = 5, game_over = 6;
+	
+	reg [7:0] estado;
+	
+	reg play;
+	
+	reg [3:0] MOLE;
+	
+	assign LEDG[7:6] = MOLE[3];
+	assign LEDG[5:4] = MOLE[2];
+	assign LEDG[3:2] = MOLE[1];
+	assign LEDG[1:0] = MOLE[0];
+	
+	//Maquina de Estados
+	
+	always @(CLOCK_50) 
+	begin
+		case (estado)
+			inicio: if(play)
+				estado <= nivel_1;
+			
+			nivel_1: begin
+				if(cont_a)
+					estado <= nivel_2;
+				if(cont_e)
+					estado <= game_over;
+			end
+			
+			nivel_2: begin
+				if(cont_a)
+					estado <= nivel_3;
+				if(cont_e)
+					estado <= game_over;
+			end
+			
+			nivel_3: begin
+				if(cont_a)
+					estado <= nivel_4;
+				if(cont_e)
+					estado <= game_over;
+			end
+			
+			nivel_4: begin
+				if(cont_a)
+					estado <= ganhou;
+				if(cont_e)
+					estado <= game_over;
+			end
+			
+			ganhou: if(cont_g)
+				estado <= inicio;
+				
+			game_over: if(cont_go)
+				estado <= inicio;
+			
+		endcase
+	end
+	
+	//INICIO
+	always @(CLOCK_50)
+	begin
+		if(estado == inicio)
+		begin
+			play <= 0;
+			cont_a <= 0;
+			cont_e <= 0;
+			cont_g <= 0;
+			cont_go <= 0;
+			
+			if(BT[3:0] == 0)
+				play <= 1;
+		end
+	end
+	
+	//NIVEL 1
+	always @(CLOCK_50)
+	begin
+		if(estado == nivel_1)
+		begin
+			
+			
+			
+			
+		
+	
+	
+	
+	
+	

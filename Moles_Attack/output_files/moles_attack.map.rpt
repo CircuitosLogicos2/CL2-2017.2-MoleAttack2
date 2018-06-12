@@ -1,0 +1,900 @@
+Analysis & Synthesis report for moles_attack
+Sat Jun 09 19:18:13 2018
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |moles_attack|LCD_Display:u1|next_command
+  9. State Machine - |moles_attack|LCD_Display:u1|state
+ 10. User-Specified and Inferred Latches
+ 11. Registers Removed During Synthesis
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Parameter Settings for User Entity Instance: Top-level Entity: |moles_attack
+ 16. Parameter Settings for User Entity Instance: LCD_Display:u1
+ 17. Parameter Settings for User Entity Instance: DeBounce:comb_406
+ 18. Parameter Settings for User Entity Instance: DeBounce:comb_407
+ 19. Parameter Settings for User Entity Instance: DeBounce:comb_408
+ 20. Parameter Settings for User Entity Instance: DeBounce:comb_409
+ 21. Parameter Settings for User Entity Instance: LFSR_counter:comb_418
+ 22. Port Connectivity Checks: "LFSR_counter:comb_418"
+ 23. Port Connectivity Checks: "DeBounce:comb_409"
+ 24. Port Connectivity Checks: "DeBounce:comb_408"
+ 25. Port Connectivity Checks: "DeBounce:comb_407"
+ 26. Port Connectivity Checks: "DeBounce:comb_406"
+ 27. Port Connectivity Checks: "LCD_Display:u1|LCD_display_string:u1"
+ 28. Port Connectivity Checks: "LCD_Display:u1"
+ 29. Elapsed Time Per Partition
+ 30. Analysis & Synthesis Messages
+ 31. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sat Jun 09 19:18:12 2018           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; moles_attack                                    ;
+; Top-level Entity Name              ; moles_attack                                    ;
+; Family                             ; Cyclone II                                      ;
+; Total logic elements               ; 488                                             ;
+;     Total combinational functions  ; 486                                             ;
+;     Dedicated logic registers      ; 187                                             ;
+; Total registers                    ; 187                                             ;
+; Total pins                         ; 155                                             ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C35F672C6       ;                    ;
+; Top-level entity name                                                      ; moles_attack       ; moles_attack       ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                         ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                                           ; Library ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------------------------+---------+
+; LFSR_counter.v                   ; yes             ; User Verilog HDL File  ; C:/Users/weesl/Documents/UFPB/2017.2/Circuitos Lógicos II/Projeto Toupeira/Moles_Attack/LFSR_counter.v ;         ;
+; reset_delay.v                    ; yes             ; User Verilog HDL File  ; C:/Users/weesl/Documents/UFPB/2017.2/Circuitos Lógicos II/Projeto Toupeira/Moles_Attack/reset_delay.v  ;         ;
+; LCD_Display.v                    ; yes             ; User Verilog HDL File  ; C:/Users/weesl/Documents/UFPB/2017.2/Circuitos Lógicos II/Projeto Toupeira/Moles_Attack/LCD_Display.v  ;         ;
+; ../DeBounce_v.v                  ; yes             ; User Verilog HDL File  ; C:/Users/weesl/Documents/UFPB/2017.2/Circuitos Lógicos II/Projeto Toupeira/Moles_Attack/DeBounce_v.v   ;         ;
+; ../moles_attack.v                ; yes             ; User Verilog HDL File  ; C:/Users/weesl/Documents/UFPB/2017.2/Circuitos Lógicos II/Projeto Toupeira/Moles_Attack/moles_attack.v ;         ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary            ;
++---------------------------------------------+----------+
+; Resource                                    ; Usage    ;
++---------------------------------------------+----------+
+; Estimated Total logic elements              ; 488      ;
+;                                             ;          ;
+; Total combinational functions               ; 486      ;
+; Logic element usage by number of LUT inputs ;          ;
+;     -- 4 input functions                    ; 206      ;
+;     -- 3 input functions                    ; 104      ;
+;     -- <=2 input functions                  ; 176      ;
+;                                             ;          ;
+; Logic elements by mode                      ;          ;
+;     -- normal mode                          ; 356      ;
+;     -- arithmetic mode                      ; 130      ;
+;                                             ;          ;
+; Total registers                             ; 187      ;
+;     -- Dedicated logic registers            ; 187      ;
+;     -- I/O registers                        ; 0        ;
+;                                             ;          ;
+; I/O pins                                    ; 155      ;
+; Embedded Multiplier 9-bit elements          ; 0        ;
+; Maximum fan-out node                        ; CLOCK_50 ;
+; Maximum fan-out                             ; 75       ;
+; Total fan-out                               ; 2110     ;
+; Average fan-out                             ; 2.55     ;
++---------------------------------------------+----------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                           ;
++-------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------+--------------+
+; Compilation Hierarchy Node    ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                ; Library Name ;
++-------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------+--------------+
+; |moles_attack                 ; 486 (246)         ; 187 (102)    ; 0           ; 0            ; 0       ; 0         ; 155  ; 0            ; |moles_attack                                      ; work         ;
+;    |LCD_Display:u1|           ; 207 (90)          ; 59 (59)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |moles_attack|LCD_Display:u1                       ; work         ;
+;       |LCD_display_string:u1| ; 117 (117)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |moles_attack|LCD_Display:u1|LCD_display_string:u1 ; work         ;
+;    |LFSR_counter:comb_418|    ; 5 (5)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |moles_attack|LFSR_counter:comb_418                ; work         ;
+;    |Reset_Delay:r0|           ; 28 (28)           ; 21 (21)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |moles_attack|Reset_Delay:r0                       ; work         ;
++-------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |moles_attack|LCD_Display:u1|next_command                                                                                                                                                                                                                            ;
++----------------------------+----------------------------+--------------------------+---------------------+---------------------+--------------------------+--------------------+---------------------------+-----------------------+-------------------------+-----------------------+
+; Name                       ; next_command.DISPLAY_CLEAR ; next_command.DISPLAY_OFF ; next_command.RESET3 ; next_command.RESET2 ; next_command.RETURN_HOME ; next_command.LINE2 ; next_command.Print_String ; next_command.MODE_SET ; next_command.DISPLAY_ON ; next_command.FUNC_SET ;
++----------------------------+----------------------------+--------------------------+---------------------+---------------------+--------------------------+--------------------+---------------------------+-----------------------+-------------------------+-----------------------+
+; next_command.FUNC_SET      ; 0                          ; 0                        ; 0                   ; 0                   ; 0                        ; 0                  ; 0                         ; 0                     ; 0                       ; 0                     ;
+; next_command.DISPLAY_ON    ; 0                          ; 0                        ; 0                   ; 0                   ; 0                        ; 0                  ; 0                         ; 0                     ; 1                       ; 1                     ;
+; next_command.MODE_SET      ; 0                          ; 0                        ; 0                   ; 0                   ; 0                        ; 0                  ; 0                         ; 1                     ; 0                       ; 1                     ;
+; next_command.Print_String  ; 0                          ; 0                        ; 0                   ; 0                   ; 0                        ; 0                  ; 1                         ; 0                     ; 0                       ; 1                     ;
+; next_command.LINE2         ; 0                          ; 0                        ; 0                   ; 0                   ; 0                        ; 1                  ; 0                         ; 0                     ; 0                       ; 1                     ;
+; next_command.RETURN_HOME   ; 0                          ; 0                        ; 0                   ; 0                   ; 1                        ; 0                  ; 0                         ; 0                     ; 0                       ; 1                     ;
+; next_command.RESET2        ; 0                          ; 0                        ; 0                   ; 1                   ; 0                        ; 0                  ; 0                         ; 0                     ; 0                       ; 1                     ;
+; next_command.RESET3        ; 0                          ; 0                        ; 1                   ; 0                   ; 0                        ; 0                  ; 0                         ; 0                     ; 0                       ; 1                     ;
+; next_command.DISPLAY_OFF   ; 0                          ; 1                        ; 0                   ; 0                   ; 0                        ; 0                  ; 0                         ; 0                     ; 0                       ; 1                     ;
+; next_command.DISPLAY_CLEAR ; 1                          ; 0                        ; 0                   ; 0                   ; 0                        ; 0                  ; 0                         ; 0                     ; 0                       ; 1                     ;
++----------------------------+----------------------------+--------------------------+---------------------+---------------------+--------------------------+--------------------+---------------------------+-----------------------+-------------------------+-----------------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |moles_attack|LCD_Display:u1|state                                                                                                                                                                                                     ;
++---------------------+---------------------+-------------------+--------------+--------------+------------+------------------+-------------------+-------------+--------------------+----------------+------------------+----------------+--------------+
+; Name                ; state.DISPLAY_CLEAR ; state.DISPLAY_OFF ; state.RESET3 ; state.RESET2 ; state.HOLD ; state.DROP_LCD_E ; state.RETURN_HOME ; state.LINE2 ; state.Print_String ; state.MODE_SET ; state.DISPLAY_ON ; state.FUNC_SET ; state.RESET1 ;
++---------------------+---------------------+-------------------+--------------+--------------+------------+------------------+-------------------+-------------+--------------------+----------------+------------------+----------------+--------------+
+; state.RESET1        ; 0                   ; 0                 ; 0            ; 0            ; 0          ; 0                ; 0                 ; 0           ; 0                  ; 0              ; 0                ; 0              ; 0            ;
+; state.FUNC_SET      ; 0                   ; 0                 ; 0            ; 0            ; 0          ; 0                ; 0                 ; 0           ; 0                  ; 0              ; 0                ; 1              ; 1            ;
+; state.DISPLAY_ON    ; 0                   ; 0                 ; 0            ; 0            ; 0          ; 0                ; 0                 ; 0           ; 0                  ; 0              ; 1                ; 0              ; 1            ;
+; state.MODE_SET      ; 0                   ; 0                 ; 0            ; 0            ; 0          ; 0                ; 0                 ; 0           ; 0                  ; 1              ; 0                ; 0              ; 1            ;
+; state.Print_String  ; 0                   ; 0                 ; 0            ; 0            ; 0          ; 0                ; 0                 ; 0           ; 1                  ; 0              ; 0                ; 0              ; 1            ;
+; state.LINE2         ; 0                   ; 0                 ; 0            ; 0            ; 0          ; 0                ; 0                 ; 1           ; 0                  ; 0              ; 0                ; 0              ; 1            ;
+; state.RETURN_HOME   ; 0                   ; 0                 ; 0            ; 0            ; 0          ; 0                ; 1                 ; 0           ; 0                  ; 0              ; 0                ; 0              ; 1            ;
+; state.DROP_LCD_E    ; 0                   ; 0                 ; 0            ; 0            ; 0          ; 1                ; 0                 ; 0           ; 0                  ; 0              ; 0                ; 0              ; 1            ;
+; state.HOLD          ; 0                   ; 0                 ; 0            ; 0            ; 1          ; 0                ; 0                 ; 0           ; 0                  ; 0              ; 0                ; 0              ; 1            ;
+; state.RESET2        ; 0                   ; 0                 ; 0            ; 1            ; 0          ; 0                ; 0                 ; 0           ; 0                  ; 0              ; 0                ; 0              ; 1            ;
+; state.RESET3        ; 0                   ; 0                 ; 1            ; 0            ; 0          ; 0                ; 0                 ; 0           ; 0                  ; 0              ; 0                ; 0              ; 1            ;
+; state.DISPLAY_OFF   ; 0                   ; 1                 ; 0            ; 0            ; 0          ; 0                ; 0                 ; 0           ; 0                  ; 0              ; 0                ; 0              ; 1            ;
+; state.DISPLAY_CLEAR ; 1                   ; 0                 ; 0            ; 0            ; 0          ; 0                ; 0                 ; 0           ; 0                  ; 0              ; 0                ; 0              ; 1            ;
++---------------------+---------------------+-------------------+--------------+--------------+------------+------------------+-------------------+-------------+--------------------+----------------+------------------+----------------+--------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                          ;
++-----------------------------------------------------+-----------------------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal                           ; Free of Timing Hazards ;
++-----------------------------------------------------+-----------------------------------------------+------------------------+
+; HEX1[0]$latch                                       ; WideNor0                                      ; yes                    ;
+; HEX1[1]$latch                                       ; WideNor0                                      ; yes                    ;
+; HEX1[2]$latch                                       ; WideNor0                                      ; yes                    ;
+; HEX1[3]$latch                                       ; WideNor0                                      ; yes                    ;
+; HEX1[4]$latch                                       ; WideNor0                                      ; yes                    ;
+; HEX1[5]$latch                                       ; WideNor0                                      ; yes                    ;
+; HEX1[6]$latch                                       ; WideNor0                                      ; yes                    ;
+; HEX2[0]$latch                                       ; WideNor0                                      ; yes                    ;
+; HEX2[1]$latch                                       ; WideNor0                                      ; yes                    ;
+; HEX2[2]$latch                                       ; WideNor0                                      ; yes                    ;
+; HEX2[3]$latch                                       ; WideNor0                                      ; yes                    ;
+; HEX2[4]$latch                                       ; WideNor0                                      ; yes                    ;
+; HEX2[5]$latch                                       ; WideNor0                                      ; yes                    ;
+; HEX2[6]$latch                                       ; WideNor0                                      ; yes                    ;
+; HEX3[0]$latch                                       ; WideNor0                                      ; yes                    ;
+; HEX3[3]$latch                                       ; WideNor0                                      ; yes                    ;
+; HEX3[4]$latch                                       ; WideNor0                                      ; yes                    ;
+; HEX3[5]$latch                                       ; WideNor0                                      ; yes                    ;
+; HEX4[0]$latch                                       ; WideNor1                                      ; yes                    ;
+; HEX4[2]$latch                                       ; WideNor1                                      ; yes                    ;
+; HEX4[3]$latch                                       ; WideNor1                                      ; yes                    ;
+; HEX4[4]$latch                                       ; WideNor1                                      ; yes                    ;
+; HEX4[5]$latch                                       ; WideNor1                                      ; yes                    ;
+; HEX4[6]$latch                                       ; WideNor1                                      ; yes                    ;
+; HEX6[0]$latch                                       ; WideOr42                                      ; yes                    ;
+; HEX6[2]$latch                                       ; WideOr42                                      ; yes                    ;
+; HEX6[3]$latch                                       ; WideOr42                                      ; yes                    ;
+; HEX6[4]$latch                                       ; WideOr42                                      ; yes                    ;
+; HEX6[5]$latch                                       ; WideOr42                                      ; yes                    ;
+; HEX6[6]$latch                                       ; WideOr42                                      ; yes                    ;
+; LCD_Display:u1|LCD_display_string:u1|out[0]         ; LCD_Display:u1|LCD_display_string:u1|WideOr26 ; yes                    ;
+; LCD_Display:u1|LCD_display_string:u1|out[3]         ; LCD_Display:u1|LCD_display_string:u1|WideOr26 ; yes                    ;
+; LCD_Display:u1|LCD_display_string:u1|out[2]         ; LCD_Display:u1|LCD_display_string:u1|WideOr26 ; yes                    ;
+; LCD_Display:u1|LCD_display_string:u1|out[1]         ; LCD_Display:u1|LCD_display_string:u1|WideOr26 ; yes                    ;
+; LCD_Display:u1|LCD_display_string:u1|out[5]         ; LCD_Display:u1|LCD_display_string:u1|WideOr26 ; yes                    ;
+; LCD_Display:u1|LCD_display_string:u1|out[4]         ; LCD_Display:u1|LCD_display_string:u1|WideOr26 ; yes                    ;
+; LCD_Display:u1|LCD_display_string:u1|out[6]         ; LCD_Display:u1|LCD_display_string:u1|WideOr26 ; yes                    ;
+; auxiliar7[0]                                        ; WideOr11                                      ; yes                    ;
+; auxiliar8[0]                                        ; WideOr11                                      ; yes                    ;
+; auxiliar8[3]                                        ; WideOr11                                      ; yes                    ;
+; auxiliar8[2]                                        ; WideOr11                                      ; yes                    ;
+; auxiliar7[1]                                        ; WideOr11                                      ; yes                    ;
+; auxiliar8[1]                                        ; WideOr11                                      ; yes                    ;
+; Number of user-specified and inferred latches = 43  ;                                               ;                        ;
++-----------------------------------------------------+-----------------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; auxiliar0[3..6]                        ; Stuck at GND due to stuck port data_in ;
+; LCD_Display:u1|LCD_RW_INT              ; Stuck at GND due to stuck port data_in ;
+; cont_a[0]                              ; Merged with auxiliar2[0]               ;
+; cont_a[1]                              ; Merged with auxiliar2[1]               ;
+; cont_a[2]                              ; Merged with auxiliar2[2]               ;
+; cont_a[3]                              ; Merged with auxiliar2[3]               ;
+; cont_a[4]                              ; Merged with auxiliar2[4]               ;
+; cont_a[5]                              ; Merged with auxiliar2[5]               ;
+; cont_a[6]                              ; Merged with auxiliar2[6]               ;
+; cont_a[7]                              ; Merged with auxiliar2[7]               ;
+; cont_a[8]                              ; Merged with auxiliar2[8]               ;
+; cont_a[9]                              ; Merged with auxiliar2[9]               ;
+; cont_a[10]                             ; Merged with auxiliar2[10]              ;
+; cont_a[11]                             ; Merged with auxiliar2[11]              ;
+; cont_a[12]                             ; Merged with auxiliar2[12]              ;
+; cont_a[13]                             ; Merged with auxiliar2[13]              ;
+; cont_a[14]                             ; Merged with auxiliar2[14]              ;
+; cont_a[15]                             ; Merged with auxiliar2[15]              ;
+; cont_a[16]                             ; Merged with auxiliar2[16]              ;
+; cont_a[17]                             ; Merged with auxiliar2[17]              ;
+; cont_a[18]                             ; Merged with auxiliar2[18]              ;
+; cont_a[19]                             ; Merged with auxiliar2[19]              ;
+; cont_a[20]                             ; Merged with auxiliar2[20]              ;
+; cont_a[21]                             ; Merged with auxiliar2[21]              ;
+; cont_a[22]                             ; Merged with auxiliar2[22]              ;
+; cont_a[23]                             ; Merged with auxiliar2[23]              ;
+; cont_a[24]                             ; Merged with auxiliar2[24]              ;
+; cont_a[25]                             ; Merged with auxiliar2[25]              ;
+; cont_a[26]                             ; Merged with auxiliar2[26]              ;
+; cont_a[27]                             ; Merged with auxiliar2[27]              ;
+; cont_a[28]                             ; Merged with auxiliar2[28]              ;
+; cont_a[29]                             ; Merged with auxiliar2[29]              ;
+; cont_a[30]                             ; Merged with auxiliar2[30]              ;
+; cont_a[31]                             ; Merged with auxiliar2[31]              ;
+; cont_a[32]                             ; Merged with auxiliar2[32]              ;
+; LCD_Display:u1|next_command~2          ; Lost fanout                            ;
+; LCD_Display:u1|next_command~3          ; Lost fanout                            ;
+; LCD_Display:u1|next_command~4          ; Lost fanout                            ;
+; LCD_Display:u1|next_command~5          ; Lost fanout                            ;
+; LCD_Display:u1|state~14                ; Lost fanout                            ;
+; LCD_Display:u1|state~15                ; Lost fanout                            ;
+; LCD_Display:u1|state~16                ; Lost fanout                            ;
+; LCD_Display:u1|state~17                ; Lost fanout                            ;
+; contador[28..32]                       ; Lost fanout                            ;
+; Total Number of Removed Registers = 51 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 187   ;
+; Number of registers using Synchronous Clear  ; 53    ;
+; Number of registers using Synchronous Load   ; 5     ;
+; Number of registers using Asynchronous Clear ; 34    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 112   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; LFSR_counter:comb_418|data[1]          ; 12      ;
+; LFSR_counter:comb_418|data[0]          ; 9       ;
+; LFSR_counter:comb_418|data[3]          ; 2       ;
+; LFSR_counter:comb_418|data[4]          ; 3       ;
+; LFSR_counter:comb_418|data[2]          ; 2       ;
+; Total number of inverted registers = 5 ;         ;
++----------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+; 3:1                ; 33 bits   ; 66 LEs        ; 33 LEs               ; 33 LEs                 ; Yes        ; |moles_attack|auxiliar2[4]                                   ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |moles_attack|auxiliar0[1]                                   ;
+; 9:1                ; 4 bits    ; 24 LEs        ; 4 LEs                ; 20 LEs                 ; Yes        ; |moles_attack|MOLE[0]                                        ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |moles_attack|LCD_Display:u1|DATA_BUS_VALUE[4]               ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |moles_attack|LCD_Display:u1|LCD_display_string:u1|Selector3 ;
+; 37:1               ; 2 bits    ; 48 LEs        ; 28 LEs               ; 20 LEs                 ; No         ; |moles_attack|LCD_Display:u1|LCD_display_string:u1|Selector4 ;
+; 37:1               ; 2 bits    ; 48 LEs        ; 38 LEs               ; 10 LEs                 ; No         ; |moles_attack|LCD_Display:u1|LCD_display_string:u1|Selector7 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |moles_attack ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; inicio         ; 0     ; Signed Integer                                      ;
+; nivel_1        ; 1     ; Signed Integer                                      ;
+; nivel_2        ; 2     ; Signed Integer                                      ;
+; nivel_3        ; 3     ; Signed Integer                                      ;
+; nivel_4        ; 4     ; Signed Integer                                      ;
+; ganhou         ; 5     ; Signed Integer                                      ;
+; game_over      ; 6     ; Signed Integer                                      ;
++----------------+-------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LCD_Display:u1 ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; HOLD           ; 0000  ; Unsigned Binary                    ;
+; FUNC_SET       ; 0001  ; Unsigned Binary                    ;
+; DISPLAY_ON     ; 0010  ; Unsigned Binary                    ;
+; MODE_SET       ; 0011  ; Unsigned Binary                    ;
+; Print_String   ; 0100  ; Unsigned Binary                    ;
+; LINE2          ; 0101  ; Unsigned Binary                    ;
+; RETURN_HOME    ; 0110  ; Unsigned Binary                    ;
+; DROP_LCD_E     ; 0111  ; Unsigned Binary                    ;
+; RESET1         ; 1000  ; Unsigned Binary                    ;
+; RESET2         ; 1001  ; Unsigned Binary                    ;
+; RESET3         ; 1010  ; Unsigned Binary                    ;
+; DISPLAY_OFF    ; 1011  ; Unsigned Binary                    ;
+; DISPLAY_CLEAR  ; 1100  ; Unsigned Binary                    ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DeBounce:comb_406 ;
++----------------+-------+---------------------------------------+
+; Parameter Name ; Value ; Type                                  ;
++----------------+-------+---------------------------------------+
+; N              ; 11    ; Signed Integer                        ;
++----------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DeBounce:comb_407 ;
++----------------+-------+---------------------------------------+
+; Parameter Name ; Value ; Type                                  ;
++----------------+-------+---------------------------------------+
+; N              ; 11    ; Signed Integer                        ;
++----------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DeBounce:comb_408 ;
++----------------+-------+---------------------------------------+
+; Parameter Name ; Value ; Type                                  ;
++----------------+-------+---------------------------------------+
+; N              ; 11    ; Signed Integer                        ;
++----------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DeBounce:comb_409 ;
++----------------+-------+---------------------------------------+
+; Parameter Name ; Value ; Type                                  ;
++----------------+-------+---------------------------------------+
+; N              ; 11    ; Signed Integer                        ;
++----------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LFSR_counter:comb_418 ;
++----------------+-------+-------------------------------------------+
+; Parameter Name ; Value ; Type                                      ;
++----------------+-------+-------------------------------------------+
+; BITS           ; 5     ; Signed Integer                            ;
++----------------+-------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "LFSR_counter:comb_418"                                                                                                        ;
++------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                                                                 ;
++------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------+
+; data       ; Output ; Warning  ; Output or bidir port (5 bits) is wider than the port expression (4 bits) it drives; bit(s) "data[4..4]" have no fanouts ;
+; data[3..2] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                     ;
++------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "DeBounce:comb_409"                                                                    ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; DB_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "DeBounce:comb_408"                                                                    ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; DB_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "DeBounce:comb_407"                                                                    ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; DB_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "DeBounce:comb_406"                                                                    ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; DB_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "LCD_Display:u1|LCD_display_string:u1"                                                                                                         ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                      ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; botoes ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------+
+; Port Connectivity Checks: "LCD_Display:u1"   ;
++------------+-------+----------+--------------+
+; Port       ; Type  ; Severity ; Details      ;
++------------+-------+----------+--------------+
+; hex3       ; Input ; Info     ; Stuck at GND ;
+; hex4       ; Input ; Info     ; Stuck at GND ;
+; hex5       ; Input ; Info     ; Stuck at GND ;
+; hex6[5..4] ; Input ; Info     ; Stuck at VCC ;
+; hex6[3..2] ; Input ; Info     ; Stuck at GND ;
+; hex6[6]    ; Input ; Info     ; Stuck at GND ;
+; hex7[5..4] ; Input ; Info     ; Stuck at VCC ;
+; hex7[6]    ; Input ; Info     ; Stuck at GND ;
++------------+-------+----------+--------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:08     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Sat Jun 09 19:17:55 2018
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off moles_attack -c moles_attack
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 1 design units, including 1 entities, in source file lfsr_counter.v
+    Info (12023): Found entity 1: LFSR_counter
+Info (12021): Found 1 design units, including 1 entities, in source file reset_delay.v
+    Info (12023): Found entity 1: Reset_Delay
+Warning (10275): Verilog HDL Module Instantiation warning at LCD_Display.v(97): ignored dangling comma in List of Port Connections
+Info (12021): Found 2 design units, including 2 entities, in source file lcd_display.v
+    Info (12023): Found entity 1: LCD_Display
+    Info (12023): Found entity 2: LCD_display_string
+Info (12021): Found 1 design units, including 1 entities, in source file debounce_v.v
+    Info (12023): Found entity 1: DeBounce
+Warning (10463): Verilog HDL Declaration warning at moles_attack.v(254): "rand" is SystemVerilog-2005 keyword
+Info (12021): Found 1 design units, including 1 entities, in source file moles_attack.v
+    Info (12023): Found entity 1: moles_attack
+Warning (10236): Verilog HDL Implicit Net warning at moles_attack.v(225): created implicit net for "RESET"
+Critical Warning (10846): Verilog HDL Instantiation warning at moles_attack.v(225): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at moles_attack.v(226): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at moles_attack.v(227): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at moles_attack.v(228): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at moles_attack.v(256): instance has no name
+Info (12127): Elaborating entity "moles_attack" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at moles_attack.v(230): object "cont_g" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at moles_attack.v(230): object "cont_go" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at moles_attack.v(235): object "estado" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at moles_attack.v(237): object "play" assigned a value but never read
+Warning (10230): Verilog HDL assignment warning at moles_attack.v(32): truncated value with size 33 to match size of target (7)
+Warning (10230): Verilog HDL assignment warning at moles_attack.v(33): truncated value with size 33 to match size of target (7)
+Warning (10230): Verilog HDL assignment warning at moles_attack.v(34): truncated value with size 33 to match size of target (7)
+Warning (10230): Verilog HDL assignment warning at moles_attack.v(35): truncated value with size 33 to match size of target (7)
+Warning (10230): Verilog HDL assignment warning at moles_attack.v(36): truncated value with size 33 to match size of target (7)
+Warning (10230): Verilog HDL assignment warning at moles_attack.v(37): truncated value with size 33 to match size of target (7)
+Warning (10230): Verilog HDL assignment warning at moles_attack.v(38): truncated value with size 33 to match size of target (7)
+Warning (10230): Verilog HDL assignment warning at moles_attack.v(39): truncated value with size 33 to match size of target (7)
+Warning (10270): Verilog HDL Case Statement warning at moles_attack.v(60): incomplete case statement has no default case item
+Warning (10240): Verilog HDL Always Construct warning at moles_attack.v(59): inferring latch(es) for variable "auxiliar8", which holds its previous value in one or more paths through the always construct
+Warning (10270): Verilog HDL Case Statement warning at moles_attack.v(123): incomplete case statement has no default case item
+Warning (10240): Verilog HDL Always Construct warning at moles_attack.v(122): inferring latch(es) for variable "auxiliar7", which holds its previous value in one or more paths through the always construct
+Warning (10230): Verilog HDL assignment warning at moles_attack.v(258): truncated value with size 4 to match size of target (2)
+Warning (10762): Verilog HDL Case Statement warning at moles_attack.v(361): can't check case statement for completeness because the case expression has too many possible states
+Warning (10270): Verilog HDL Case Statement warning at moles_attack.v(361): incomplete case statement has no default case item
+Warning (10762): Verilog HDL Case Statement warning at moles_attack.v(562): can't check case statement for completeness because the case expression has too many possible states
+Warning (10270): Verilog HDL Case Statement warning at moles_attack.v(562): incomplete case statement has no default case item
+Warning (10240): Verilog HDL Always Construct warning at moles_attack.v(359): inferring latch(es) for variable "HEX0", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at moles_attack.v(359): inferring latch(es) for variable "HEX1", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at moles_attack.v(359): inferring latch(es) for variable "HEX2", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at moles_attack.v(359): inferring latch(es) for variable "HEX3", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at moles_attack.v(359): inferring latch(es) for variable "HEX6", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at moles_attack.v(359): inferring latch(es) for variable "HEX7", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at moles_attack.v(359): inferring latch(es) for variable "HEX4", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at moles_attack.v(359): inferring latch(es) for variable "HEX5", which holds its previous value in one or more paths through the always construct
+Warning (10034): Output port "LEDG[8]" at moles_attack.v(4) has no driver
+Info (10041): Inferred latch for "HEX5[0]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX5[1]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX5[2]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX5[3]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX5[4]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX5[5]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX5[6]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX4[0]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX4[1]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX4[2]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX4[3]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX4[4]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX4[5]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX4[6]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX7[0]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX7[1]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX7[2]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX7[3]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX7[4]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX7[5]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX7[6]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX6[0]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX6[1]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX6[2]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX6[3]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX6[4]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX6[5]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX6[6]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX3[0]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX3[1]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX3[2]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX3[3]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX3[4]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX3[5]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX3[6]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX2[0]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX2[1]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX2[2]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX2[3]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX2[4]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX2[5]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX2[6]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX1[0]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX1[1]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX1[2]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX1[3]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX1[4]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX1[5]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX1[6]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX0[0]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX0[1]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX0[2]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX0[3]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX0[4]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX0[5]" at moles_attack.v(359)
+Info (10041): Inferred latch for "HEX0[6]" at moles_attack.v(359)
+Info (10041): Inferred latch for "auxiliar7[0]" at moles_attack.v(122)
+Info (10041): Inferred latch for "auxiliar7[1]" at moles_attack.v(122)
+Info (10041): Inferred latch for "auxiliar7[2]" at moles_attack.v(122)
+Info (10041): Inferred latch for "auxiliar7[3]" at moles_attack.v(122)
+Info (10041): Inferred latch for "auxiliar7[4]" at moles_attack.v(122)
+Info (10041): Inferred latch for "auxiliar7[5]" at moles_attack.v(122)
+Info (10041): Inferred latch for "auxiliar7[6]" at moles_attack.v(122)
+Info (10041): Inferred latch for "auxiliar8[0]" at moles_attack.v(59)
+Info (10041): Inferred latch for "auxiliar8[1]" at moles_attack.v(59)
+Info (10041): Inferred latch for "auxiliar8[2]" at moles_attack.v(59)
+Info (10041): Inferred latch for "auxiliar8[3]" at moles_attack.v(59)
+Info (10041): Inferred latch for "auxiliar8[4]" at moles_attack.v(59)
+Info (10041): Inferred latch for "auxiliar8[5]" at moles_attack.v(59)
+Info (10041): Inferred latch for "auxiliar8[6]" at moles_attack.v(59)
+Info (12128): Elaborating entity "Reset_Delay" for hierarchy "Reset_Delay:r0"
+Info (12128): Elaborating entity "LCD_Display" for hierarchy "LCD_Display:u1"
+Info (12128): Elaborating entity "LCD_display_string" for hierarchy "LCD_Display:u1|LCD_display_string:u1"
+Warning (10235): Verilog HDL Always Construct warning at LCD_Display.v(298): variable "hex0" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at LCD_Display.v(301): variable "index" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at LCD_Display.v(326): variable "index" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at LCD_Display.v(352): variable "index" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at LCD_Display.v(353): variable "hex6" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at LCD_Display.v(354): variable "hex7" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at LCD_Display.v(381): variable "index" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at LCD_Display.v(402): variable "index" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at LCD_Display.v(417): variable "index" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10270): Verilog HDL Case Statement warning at LCD_Display.v(298): incomplete case statement has no default case item
+Warning (10240): Verilog HDL Always Construct warning at LCD_Display.v(296): inferring latch(es) for variable "out", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "out[0]" at LCD_Display.v(296)
+Info (10041): Inferred latch for "out[1]" at LCD_Display.v(296)
+Info (10041): Inferred latch for "out[2]" at LCD_Display.v(296)
+Info (10041): Inferred latch for "out[3]" at LCD_Display.v(296)
+Info (10041): Inferred latch for "out[4]" at LCD_Display.v(296)
+Info (10041): Inferred latch for "out[5]" at LCD_Display.v(296)
+Info (10041): Inferred latch for "out[6]" at LCD_Display.v(296)
+Info (10041): Inferred latch for "out[7]" at LCD_Display.v(296)
+Info (12128): Elaborating entity "DeBounce" for hierarchy "DeBounce:comb_406"
+Warning (10230): Verilog HDL assignment warning at DeBounce_v.v(54): truncated value with size 32 to match size of target (11)
+Info (12128): Elaborating entity "LFSR_counter" for hierarchy "LFSR_counter:comb_418"
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "RESET" is missing source, defaulting to GND
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "RESET" is missing source, defaulting to GND
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "RESET" is missing source, defaulting to GND
+Warning (19016): Clock multiplexers are found and protected
+    Warning (19017): Found clock multiplexer Mux1
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
+    Info (13026): Duplicate LATCH primitive "HEX3[5]$latch" merged with LATCH primitive "HEX3[0]$latch"
+    Info (13026): Duplicate LATCH primitive "HEX3[4]$latch" merged with LATCH primitive "HEX3[0]$latch"
+    Info (13026): Duplicate LATCH primitive "HEX3[3]$latch" merged with LATCH primitive "HEX3[0]$latch"
+    Info (13026): Duplicate LATCH primitive "HEX4[3]$latch" merged with LATCH primitive "HEX4[0]$latch"
+    Info (13026): Duplicate LATCH primitive "HEX6[3]$latch" merged with LATCH primitive "HEX6[0]$latch"
+Warning (13012): Latch HEX1[0]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal auxiliar2[0]
+Warning (13012): Latch HEX1[1]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal auxiliar2[0]
+Warning (13012): Latch HEX1[2]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal auxiliar2[0]
+Warning (13012): Latch HEX1[3]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal auxiliar2[0]
+Warning (13012): Latch HEX1[4]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal auxiliar2[0]
+Warning (13012): Latch HEX1[5]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal auxiliar2[0]
+Warning (13012): Latch HEX1[6]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal auxiliar2[0]
+Warning (13012): Latch HEX2[0]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal auxiliar2[0]
+Warning (13012): Latch HEX2[1]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal auxiliar2[0]
+Warning (13012): Latch HEX2[2]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal auxiliar2[0]
+Warning (13012): Latch HEX2[3]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal auxiliar2[0]
+Warning (13012): Latch HEX2[4]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal auxiliar2[0]
+Warning (13012): Latch HEX2[5]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal auxiliar2[0]
+Warning (13012): Latch HEX2[6]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal auxiliar2[0]
+Warning (13012): Latch HEX3[0]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal auxiliar2[0]
+Warning (13012): Latch HEX4[0]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cont_e[0]
+Warning (13012): Latch HEX4[2]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cont_e[0]
+Warning (13012): Latch HEX4[4]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cont_e[0]
+Warning (13012): Latch HEX4[5]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cont_e[0]
+Warning (13012): Latch HEX4[6]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cont_e[0]
+Warning (13012): Latch HEX6[0]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal auxiliar2[0]
+Warning (13012): Latch HEX6[2]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal auxiliar2[0]
+Warning (13012): Latch HEX6[4]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal auxiliar2[0]
+Warning (13012): Latch HEX6[5]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal auxiliar2[0]
+Warning (13012): Latch HEX6[6]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal auxiliar2[0]
+Warning (13012): Latch LCD_Display:u1|LCD_display_string:u1|out[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal auxiliar0[2]
+Warning (13012): Latch LCD_Display:u1|LCD_display_string:u1|out[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal auxiliar0[2]
+Warning (13012): Latch LCD_Display:u1|LCD_display_string:u1|out[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal auxiliar0[2]
+Warning (13012): Latch LCD_Display:u1|LCD_display_string:u1|out[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal auxiliar0[1]
+Warning (13012): Latch LCD_Display:u1|LCD_display_string:u1|out[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal auxiliar0[2]
+Warning (13012): Latch LCD_Display:u1|LCD_display_string:u1|out[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal auxiliar0[2]
+Warning (13012): Latch LCD_Display:u1|LCD_display_string:u1|out[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal auxiliar0[2]
+Warning (13012): Latch auxiliar7[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal auxiliar2[5]
+Warning (13012): Latch auxiliar8[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal auxiliar2[0]
+Warning (13012): Latch auxiliar8[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal auxiliar2[5]
+Warning (13012): Latch auxiliar8[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal auxiliar2[5]
+Warning (13012): Latch auxiliar7[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal auxiliar2[5]
+Warning (13012): Latch auxiliar8[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal auxiliar2[5]
+Warning (13009): TRI or OPNDRN buffers permanently enabled
+    Warning (13010): Node "LCD_Display:u1|DATA_BUS[0]~synth"
+    Warning (13010): Node "LCD_Display:u1|DATA_BUS[1]~synth"
+    Warning (13010): Node "LCD_Display:u1|DATA_BUS[2]~synth"
+    Warning (13010): Node "LCD_Display:u1|DATA_BUS[3]~synth"
+    Warning (13010): Node "LCD_Display:u1|DATA_BUS[4]~synth"
+    Warning (13010): Node "LCD_Display:u1|DATA_BUS[5]~synth"
+    Warning (13010): Node "LCD_Display:u1|DATA_BUS[6]~synth"
+    Warning (13010): Node "LCD_Display:u1|DATA_BUS[7]~synth"
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDG[8]" is stuck at GND
+    Warning (13410): Pin "HEX0[0]" is stuck at GND
+    Warning (13410): Pin "HEX0[1]" is stuck at GND
+    Warning (13410): Pin "HEX0[2]" is stuck at GND
+    Warning (13410): Pin "HEX0[3]" is stuck at GND
+    Warning (13410): Pin "HEX0[4]" is stuck at GND
+    Warning (13410): Pin "HEX0[5]" is stuck at GND
+    Warning (13410): Pin "HEX0[6]" is stuck at VCC
+    Warning (13410): Pin "HEX3[1]" is stuck at GND
+    Warning (13410): Pin "HEX3[2]" is stuck at GND
+    Warning (13410): Pin "HEX3[6]" is stuck at VCC
+    Warning (13410): Pin "HEX4[1]" is stuck at GND
+    Warning (13410): Pin "HEX5[0]" is stuck at GND
+    Warning (13410): Pin "HEX5[1]" is stuck at GND
+    Warning (13410): Pin "HEX5[2]" is stuck at GND
+    Warning (13410): Pin "HEX5[3]" is stuck at GND
+    Warning (13410): Pin "HEX5[4]" is stuck at GND
+    Warning (13410): Pin "HEX5[5]" is stuck at GND
+    Warning (13410): Pin "HEX5[6]" is stuck at VCC
+    Warning (13410): Pin "HEX6[1]" is stuck at GND
+    Warning (13410): Pin "HEX7[0]" is stuck at GND
+    Warning (13410): Pin "HEX7[1]" is stuck at GND
+    Warning (13410): Pin "HEX7[2]" is stuck at GND
+    Warning (13410): Pin "HEX7[3]" is stuck at GND
+    Warning (13410): Pin "HEX7[4]" is stuck at GND
+    Warning (13410): Pin "HEX7[5]" is stuck at GND
+    Warning (13410): Pin "HEX7[6]" is stuck at VCC
+    Warning (13410): Pin "LCD_ON" is stuck at VCC
+    Warning (13410): Pin "LCD_BLON" is stuck at VCC
+    Warning (13410): Pin "LCD_RW" is stuck at GND
+Info (17049): 13 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/weesl/Documents/UFPB/2017.2/Circuitos Lógicos II/Projeto Toupeira/Moles_Attack/output_files/moles_attack.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 645 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 5 input pins
+    Info (21059): Implemented 70 output pins
+    Info (21060): Implemented 80 bidirectional pins
+    Info (21061): Implemented 490 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 176 warnings
+    Info: Peak virtual memory: 528 megabytes
+    Info: Processing ended: Sat Jun 09 19:18:13 2018
+    Info: Elapsed time: 00:00:18
+    Info: Total CPU time (on all processors): 00:00:09
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/weesl/Documents/UFPB/2017.2/Circuitos Lógicos II/Projeto Toupeira/Moles_Attack/output_files/moles_attack.map.smsg.
+
+
